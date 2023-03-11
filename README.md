@@ -13,7 +13,7 @@ Usage:
 // UEF interceptor
 {
   id: 'UEA0102',
-  memberships: new Set<UnitSet>(['T1', 'air', 'interceptor', 'UEF'])
+  memberships: new Set(['T1', 'air', 'interceptor', 'UEF'])
 },
 ```
 3. Add some modifiers to `main.ts` eg.
