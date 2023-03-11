@@ -8,7 +8,7 @@ npm install
 
 Usage:
 1. Set FA repository path in `config.ts`
-2. Add any missing units to 'units.ts' eg.
+2. Add any missing units to `units.ts` eg.
 ```
 // UEF interceptor
 {
