@@ -1,4 +1,5 @@
-export type UnitSet = 'T1' | 'T2' | 'T3' | 'air' | 'scout'
+export type UnitSet = 'T1' | 'T2' | 'T3' | 'air'
+                     | 'scout' | 'interceptor'
                      | 'UEF' | 'Cybran' | 'Aeon' | 'Seraphim';
 
 export interface Unit {
@@ -7,27 +8,43 @@ export interface Unit {
   memberships: Set<UnitSet>;
 }
 
-const units: Record<string, Unit> = {
-  UEA0101: {
+const units: Unit[] = [
+  {
     id: 'UEA0101',
     name: 'Hummingbird',
     memberships: new Set<UnitSet>(['T1', 'air', 'scout', 'UEF'])
   },
-  URA0101: {
+  {
     id: 'URA0101',
     memberships: new Set<UnitSet>(['T1', 'air', 'scout', 'Cybran'])
   },
-  UAA0101: {
+  {
     id: 'UAA0101',
     memberships: new Set<UnitSet>(['T1', 'air', 'scout', 'Aeon'])
   },
-  XSA0101: {
+  {
     id: 'XSA0101',
     memberships: new Set<UnitSet>(['T1', 'air', 'scout', 'Seraphim'])
   },
-};
+  {
+    id: 'UEA0102',
+    memberships: new Set<UnitSet>(['T1', 'air', 'interceptor', 'UEF'])
+  },
+  {
+    id: 'URA0102',
+    memberships: new Set<UnitSet>(['T1', 'air', 'interceptor', 'Cybran'])
+  },
+  {
+    id: 'UAA0102',
+    memberships: new Set<UnitSet>(['T1', 'air', 'interceptor', 'Aeon'])
+  },
+  {
+    id: 'XSA0102',
+    memberships: new Set<UnitSet>(['T1', 'air', 'interceptor', 'Seraphim'])
+  },
+];
 
 // returns an array of unit IDs
 export const query = (memberships: UnitSet[]): string[] => (
-  Object.values(units).filter(u => memberships.every(p => u.memberships.has(p))).map(u => u.id)
+  units.filter(u => memberships.every(p => u.memberships.has(p))).map(u => u.id)
 );
